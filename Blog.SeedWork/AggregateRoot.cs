@@ -4,7 +4,7 @@ namespace Blog.SeedWork;
 /// Aggregate Root
 /// </summary>
 /// <typeparam name="TId"></typeparam>
-public abstract class AggregateRoot<TId> : IInternalEventHandler
+public abstract class AggregateRoot<TId> : IInternalEventHandler where TId : ValueObject<TId>
 {
     public TId Id { get; protected set; }
     public int Version { get; private set; } = -1;

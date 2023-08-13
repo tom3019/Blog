@@ -9,11 +9,11 @@ public abstract class AggregateRoot<TId> : IInternalEventHandler where TId : Val
     public TId Id { get; protected set; }
     public int Version { get; private set; } = -1;
 
-    private readonly IList<object> _changes;
-    protected AggregateRoot() => _changes = new List<object>();
+    private readonly IList<DomainEvent> _changes;
+    protected AggregateRoot() => _changes = new List<DomainEvent>();
     protected abstract void When(object @event);
     protected abstract void EnsureValidState();
-    protected void Apply(object @event)
+    protected void Apply(DomainEvent @event)
     {
         When(@event);
         EnsureValidState();

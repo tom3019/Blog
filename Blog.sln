@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Entities", "Blog.Entities\Blog.Entities.csproj", "{93E2FEE8-DA29-4564-9AF2-8E209EF1BCB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.BlogArticle.Entities", "Blog.BlogArticle.Entities\Blog.BlogArticle.Entities.csproj", "{93E2FEE8-DA29-4564-9AF2-8E209EF1BCB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.SeedWork", "Blog.SeedWork\Blog.SeedWork.csproj", "{BF0CBBE0-8621-47F6-AC7C-C5D792B6C285}"
 EndProject

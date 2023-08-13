@@ -144,6 +144,15 @@ public class BlogArticle : AggregateRoot<BlogArticleId>
 
     protected override void EnsureValidState()
     {
-        throw new NotImplementedException();
+        var valid = Id != Guid.Empty && MemberId != Guid.Empty && PublicationState switch
+        {
+            PublicationState.Published => Content is not null && Title is not null && State == ArticleState.Active,
+            _ => true
+        };
+
+        if (!valid)
+        {
+            throw new BlogArticleDomainException($"Post-check fail in PublicationState {PublicationState}");
+        }
     }
 }

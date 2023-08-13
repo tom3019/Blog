@@ -3,16 +3,15 @@ namespace Blog.SeedWork;
 /// <summary>
 /// 領域事件
 /// </summary>
-/// <typeparam name="T"></typeparam>
-public interface IDomainEvent<T>
+public abstract record DomainEvent
 {
     /// <summary>
     /// 建立時間
     /// </summary>
-    public DateTime CreateAt { get; set; }
+    public DateTime CreateAt { get; set; } = DateTime.Now;
 
     /// <summary>
-    /// Entity
+    /// EventId
     /// </summary>
-    public T Entity { get; set; }
+    public Guid EventId { get; set; } = Guid.NewGuid();
 }

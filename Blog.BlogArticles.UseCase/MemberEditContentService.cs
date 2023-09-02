@@ -1,26 +1,27 @@
 using Blog.BlogArticles.Entities;
-using Blog.BlogArticles.UseCase.Port.In.MemberCreateArticle;
+using Blog.BlogArticles.UseCase.Port;
+using Blog.BlogArticles.UseCase.Port.In.MemberEditContent;
 using Blog.BlogArticles.UseCase.Port.Out;
 using Blog.SeedWork;
 
 namespace Blog.BlogArticles.UseCase;
 
 /// <summary>
-/// 會員建立文章
+/// 會員編輯文章內容
 /// </summary>
-public class MemberCreateArticleService : IMemberCreateArticleService
+public class MemberEditContentService : IMemberEditContentService
 {
     private readonly IDomainEventBus _domainEventBus;
+    private readonly ILoadBlogArticlePort _loadBlogArticlePort;
     private readonly ISaveBlogArticlePort _saveBlogArticlePort;
-    private readonly IGetNewBlogArticleIdPort _getNewBlogArticleIdPort;
 
-    public MemberCreateArticleService(IDomainEventBus domainEventBus,
-        ISaveBlogArticlePort saveBlogArticlePort,
-        IGetNewBlogArticleIdPort getNewBlogArticleIdPort)
+    public MemberEditContentService(IDomainEventBus domainEventBus,
+        ILoadBlogArticlePort loadBlogArticlePort,
+        ISaveBlogArticlePort saveBlogArticlePort)
     {
         _domainEventBus = domainEventBus;
+        _loadBlogArticlePort = loadBlogArticlePort;
         _saveBlogArticlePort = saveBlogArticlePort;
-        _getNewBlogArticleIdPort = getNewBlogArticleIdPort;
     }
 
     /// <summary>
@@ -28,10 +29,11 @@ public class MemberCreateArticleService : IMemberCreateArticleService
     /// </summary>
     /// <param name="import"></param>
     /// <returns></returns>
-    public async Task<SuccessResult> HandleAsync(MemberCreateArticleImport import)
+    public async Task<SuccessResult> HandleAsync(MemberEditContentImport import)
     {
-        var blogArticleId = await _getNewBlogArticleIdPort.NewBlogArticleIdAsync();
-        var blogArticle = new BlogArticle(new BlogArticleId(blogArticleId), new MemberId(import.MemberId));
+        var blogArticle = await _loadBlogArticlePort.LoadAsync(new BlogArticleId(import.BlogArticleId));
+        blogArticle.ChangeContent(import.Content);
+
         var success = await _saveBlogArticlePort.SaveAsync(blogArticle);
         if (!success)
         {
@@ -47,6 +49,5 @@ public class MemberCreateArticleService : IMemberCreateArticleService
         {
             Success = success,
         };
-
     }
 }

@@ -12,28 +12,28 @@ public class BlogArticle : AggregateRoot<BlogArticleId>
     /// <summary>
     /// 會員Id
     /// </summary>
-    public MemberId MemberId { get; set; }
+    public MemberId MemberId { get; private set; }
 
     /// <summary>
     /// 文章上下架狀態
     /// </summary>
-    public PublicationState PublicationState { get; set; }
+    public PublicationState PublicationState { get; private set; }
 
     /// <summary>
     /// 文章內容
     /// </summary>
-    public ArticleContent Content { get; set; }
+    public ArticleContent Content { get; private set; }
 
     /// <summary>
     /// 文章標題
     /// </summary>
-    public ArticleTitle Title { get; set; }
+    public ArticleTitle Title { get; private set; }
 
 
     /// <summary>
     /// 文章狀態
     /// </summary>
-    public ArticleState State { get; set; }
+    public ArticleState State { get; private set; }
 
     /// <summary>
     /// 建立文章

@@ -32,7 +32,7 @@ public class MemberCreateArticleServiceTest
     [Fact]
     public async Task 建立部落格文章_資料庫儲存失敗_傳回False與ErrorMessage()
     {
-        _getNewBlogArticleIdPort.NewBlogArticleIdAsync().Returns(new Guid("20A5836B-5396-4C59-96E5-AEF08BAC5B4B"));
+        _getNewBlogArticleIdPort.GetNewBlogArticleIdAsync().Returns(new Guid("20A5836B-5396-4C59-96E5-AEF08BAC5B4B"));
         _saveBlogArticlePort.SaveAsync(Arg.Any<BlogArticle>()).Returns(false);
 
         var sut = GetSystemUnderTest();
@@ -48,7 +48,7 @@ public class MemberCreateArticleServiceTest
     [Fact]
     public async Task 建立部落格文章_資料庫儲存成功_傳回True()
     {
-        _getNewBlogArticleIdPort.NewBlogArticleIdAsync().Returns(new Guid("20A5836B-5396-4C59-96E5-AEF08BAC5B4B"));
+        _getNewBlogArticleIdPort.GetNewBlogArticleIdAsync().Returns(new Guid("20A5836B-5396-4C59-96E5-AEF08BAC5B4B"));
         _saveBlogArticlePort.SaveAsync(Arg.Any<BlogArticle>()).Returns(true);
 
         var sut = GetSystemUnderTest();

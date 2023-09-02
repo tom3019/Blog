@@ -30,7 +30,7 @@ public class MemberCreateArticleService : IMemberCreateArticleService
     /// <returns></returns>
     public async Task<SuccessResult> HandleAsync(MemberCreateArticleImport import)
     {
-        var blogArticleId = await _getNewBlogArticleIdPort.NewBlogArticleIdAsync();
+        var blogArticleId = await _getNewBlogArticleIdPort.GetNewBlogArticleIdAsync();
         var blogArticle = new BlogArticle(new BlogArticleId(blogArticleId), new MemberId(import.MemberId));
         var success = await _saveBlogArticlePort.SaveAsync(blogArticle);
         if (!success)

@@ -2,6 +2,7 @@ using Blog.BlogArticles.Entities;
 using Blog.BlogArticles.UseCase;
 using Blog.BlogArticles.UseCase.Port.In.MemberCreateArticle;
 using Blog.BlogArticles.UseCase.Port.In.MemberEditContent;
+using Blog.BlogArticles.UseCase.Port.In.MemberEditTitle;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Blog.BlogArticles.MainComponents;
@@ -18,6 +19,7 @@ public static class BlogArticlesServiceCollectionExtensions
     {
         services.AddScoped<IMemberCreateArticleService, MemberCreateArticleService>();
         services.AddScoped<IMemberEditContentService, MemberEditContentService>();
+        services.AddScoped<IMemberEditTitleService, MemberEditTitleService>();
         return services;
     }
 

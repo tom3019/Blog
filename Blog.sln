@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.SeedWork", "Blog.SeedW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.BlogArticle.DomainEvents", "Blog.BlogArticle.DomainEvents\Blog.BlogArticle.DomainEvents.csproj", "{4E75BF4E-79CA-43D8-A46B-81A93D3ED849}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.EventBus", "Blog.EventBus\Blog.EventBus.csproj", "{4EB9502A-ECF4-4610-937F-4D569BA6C253}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{4E75BF4E-79CA-43D8-A46B-81A93D3ED849}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E75BF4E-79CA-43D8-A46B-81A93D3ED849}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E75BF4E-79CA-43D8-A46B-81A93D3ED849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB9502A-ECF4-4610-937F-4D569BA6C253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB9502A-ECF4-4610-937F-4D569BA6C253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB9502A-ECF4-4610-937F-4D569BA6C253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB9502A-ECF4-4610-937F-4D569BA6C253}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

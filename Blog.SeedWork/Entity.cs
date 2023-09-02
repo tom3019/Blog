@@ -21,5 +21,5 @@ public abstract class Entity<TId>: IInternalEventHandler
         _applier(@event);
     }
 
-    void IInternalEventHandler.Handle(object @event) => When(@event);
+    void IInternalEventHandler.Handle(DomainEvent @event) => When(@event);
 }

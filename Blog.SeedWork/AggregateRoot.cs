@@ -20,10 +20,10 @@ public abstract class AggregateRoot<TId> : IInternalEventHandler where TId : Val
         _changes.Add(@event);
     }
 
-    public IEnumerable<object> GetChanges() => _changes.AsEnumerable();
+    public IEnumerable<DomainEvent> GetChanges() => _changes.AsEnumerable();
     public void ClearChanges() => _changes.Clear();
-    protected void ApplyToEntity(IInternalEventHandler entity, object @event) => entity?.Handle(@event);
-    void IInternalEventHandler.Handle(object @event) => When(@event);
+    protected void ApplyToEntity(IInternalEventHandler entity, DomainEvent @event) => entity?.Handle(@event);
+    void IInternalEventHandler.Handle(DomainEvent @event) => When(@event);
 
     public void Load(IEnumerable<object> history)
     {

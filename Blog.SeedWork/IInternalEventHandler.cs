@@ -9,5 +9,5 @@ public interface IInternalEventHandler
     /// 事件處理程序
     /// </summary>
     /// <param name="event"></param>
-    void Handle(object @event);
+    void Handle(DomainEvent @event);
 }

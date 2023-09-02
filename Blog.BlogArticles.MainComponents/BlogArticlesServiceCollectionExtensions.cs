@@ -1,6 +1,7 @@
 using Blog.BlogArticles.Entities;
 using Blog.BlogArticles.UseCase;
 using Blog.BlogArticles.UseCase.Port.In.ArticlePublish;
+using Blog.BlogArticles.UseCase.Port.In.ArticleWithdraw;
 using Blog.BlogArticles.UseCase.Port.In.MemberCreateArticle;
 using Blog.BlogArticles.UseCase.Port.In.MemberEditContent;
 using Blog.BlogArticles.UseCase.Port.In.MemberEditTitle;
@@ -22,6 +23,7 @@ public static class BlogArticlesServiceCollectionExtensions
         services.AddScoped<IMemberEditContentService, MemberEditContentService>();
         services.AddScoped<IMemberEditTitleService, MemberEditTitleService>();
         services.AddScoped<IArticlePublishService, ArticlePublishService>();
+        services.AddScoped<IArticleWithdrawService, ArticleWithdrawService>();
         return services;
     }
 

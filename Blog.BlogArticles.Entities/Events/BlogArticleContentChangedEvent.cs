@@ -1,6 +1,6 @@
 using Blog.SeedWork;
 
-namespace Blog.BlogArticles.DomainEvents;
+namespace Blog.BlogArticles.Entities.Events;
 
 /// <summary>
 /// 部落格文章內容變更事件

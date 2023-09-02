@@ -1,4 +1,4 @@
-using Blog.BlogArticles.DomainEvents;
+using Blog.BlogArticles.Entities.Events;
 using Blog.BlogArticles.Entities.Exceptions;
 using Blog.SeedWork;
 

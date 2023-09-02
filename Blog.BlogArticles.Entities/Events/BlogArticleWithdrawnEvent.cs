@@ -1,11 +1,11 @@
 using Blog.SeedWork;
 
-namespace Blog.BlogArticles.DomainEvents;
+namespace Blog.BlogArticles.Entities.Events;
 
 /// <summary>
-/// 部落格文章上架事件
+/// 部落格文章下架事件
 /// </summary>
-public record BlogArticlePublishedEvent : DomainEvent
+public record BlogArticleWithdrawnEvent : DomainEvent
 {
     /// <summary>
     /// 文章Id

@@ -32,10 +32,10 @@ public class ArticleRemoveServiceTest
     }
 
     [Fact]
-    public void 文章刪除_部落格文章不存在_拋出BlogArticleNotFoundException()
+    public async Task 文章刪除_部落格文章不存在_拋出BlogArticleNotFoundException()
     {
         // Arrange
-        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).ReturnsNull();
+        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).Returns(BlogArticle.Null);
 
         // Act
         var sut = GetSystemUnderTest();
@@ -45,7 +45,7 @@ public class ArticleRemoveServiceTest
         });
 
         // Assert
-        actual.Should().ThrowAsync<BlogArticleNotFoundException>();
+        await actual.Should().ThrowAsync<BlogArticleNotFoundException>();
     }
 
     [Fact]

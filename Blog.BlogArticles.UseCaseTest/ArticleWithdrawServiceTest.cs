@@ -32,21 +32,21 @@ public class ArticleWithdrawServiceTest
     }
 
     [Fact]
-    public void 文章下架_部落格文章不存在_拋出BlogArticleNotFoundException()
+    public async Task 文章下架_部落格文章不存在_拋出BlogArticleNotFoundException()
     {
         // Arrange
         var import = new ArticleWithdrawImport
         {
             BlogArticleId = Guid.NewGuid(),
         };
-        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).ReturnsNull();
+        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).Returns(BlogArticle.Null);
 
         // Act
         var sut = GetSystemUnderTest();
         var actual = async () => await sut.HandleAsync(import);
 
         // Assert
-        actual.Should().ThrowAsync<BlogArticleNotFoundException>();
+        await actual.Should().ThrowAsync<BlogArticleNotFoundException>();
     }
 
     [Fact]

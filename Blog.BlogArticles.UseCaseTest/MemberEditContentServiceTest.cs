@@ -32,10 +32,10 @@ public class MemberEditContentServiceTest
     }
 
     [Fact]
-    public void 編輯文章內容_文章Id不存在_拋出BlogArticleNotFoundException()
+    public async Task 編輯文章內容_文章Id不存在_拋出BlogArticleNotFoundException()
     {
         var sut = GetSystemUnderTest();
-        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).ReturnsNull();
+        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).Returns(BlogArticle.Null);
 
         var actual = async () => await sut.HandleAsync(new MemberEditContentImport
         {
@@ -43,7 +43,7 @@ public class MemberEditContentServiceTest
             Content = "Content",
         });
 
-        actual.Should().ThrowAsync<BlogArticleNotFoundException>();
+        await actual.Should().ThrowAsync<BlogArticleNotFoundException>();
     }
 
     [Fact]

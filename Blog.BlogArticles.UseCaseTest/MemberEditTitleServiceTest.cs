@@ -8,7 +8,6 @@ using Blog.BlogArticles.UseCase.Port.Out;
 using Blog.SeedWork;
 using FluentAssertions;
 using NSubstitute;
-using NSubstitute.ReturnsExtensions;
 using Xunit;
 
 namespace Blog.BlogArticles.UseCaseTest;
@@ -32,10 +31,10 @@ public class MemberEditTitleServiceTest
     }
 
     [Fact]
-    public void 編輯標題_部落格文章不存在_拋出BlogArticleNotFoundException()
+    public async Task 編輯標題_部落格文章不存在_拋出BlogArticleNotFoundException()
     {
         // Arrange
-        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).ReturnsNull();
+        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).Returns(BlogArticle.Null);
 
         // Act
         var sut = GetSystemUnderTest();
@@ -47,7 +46,7 @@ public class MemberEditTitleServiceTest
             });
 
         // Assert
-        actual.Should().ThrowAsync<BlogArticleNotFoundException>();
+        await actual.Should().ThrowAsync<BlogArticleNotFoundException>();
     }
 
     [Fact]

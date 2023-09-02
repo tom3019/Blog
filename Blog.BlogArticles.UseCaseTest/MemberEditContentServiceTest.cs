@@ -8,6 +8,7 @@ using Blog.BlogArticles.UseCase.Port.Out;
 using Blog.SeedWork;
 using FluentAssertions;
 using NSubstitute;
+using NSubstitute.ReturnsExtensions;
 using Xunit;
 
 namespace Blog.BlogArticles.UseCaseTest;
@@ -34,7 +35,9 @@ public class MemberEditContentServiceTest
     public void 編輯文章內容_文章Id不存在_拋出BlogArticleNotFoundException()
     {
         var sut = GetSystemUnderTest();
-        Func<Task> actual = async () => await sut.HandleAsync(new MemberEditContentImport
+        _loadBlogArticlePort.LoadAsync(Arg.Any<BlogArticleId>()).ReturnsNull();
+
+        var actual = async () => await sut.HandleAsync(new MemberEditContentImport
         {
             BlogArticleId = new Guid("9684C1A0-17F9-4CA1-8475-B4EFD31B2608"),
             Content = "Content",

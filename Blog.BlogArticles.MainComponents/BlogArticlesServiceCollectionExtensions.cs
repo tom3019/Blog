@@ -5,6 +5,7 @@ using Blog.BlogArticles.UseCase.Port.In.ArticleWithdraw;
 using Blog.BlogArticles.UseCase.Port.In.MemberCreateArticle;
 using Blog.BlogArticles.UseCase.Port.In.MemberEditContent;
 using Blog.BlogArticles.UseCase.Port.In.MemberEditTitle;
+using Blog.BlogArticles.UseCase.Port.In.RemoveArticle;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Blog.BlogArticles.MainComponents;
@@ -24,6 +25,7 @@ public static class BlogArticlesServiceCollectionExtensions
         services.AddScoped<IMemberEditTitleService, MemberEditTitleService>();
         services.AddScoped<IArticlePublishService, ArticlePublishService>();
         services.AddScoped<IArticleWithdrawService, ArticleWithdrawService>();
+        services.AddScoped<IArticleRemoveService, ArticleRemoveService>();
         return services;
     }
 

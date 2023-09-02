@@ -1,7 +1,7 @@
-using Blog.BlogArticle.Entities.Exceptions;
+using Blog.BlogArticles.Entities.Exceptions;
 using Blog.SeedWork;
 
-namespace Blog.BlogArticle.Entities;
+namespace Blog.BlogArticles.Entities;
 
 /// <summary>
 /// 文章標題

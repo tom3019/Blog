@@ -1,4 +1,4 @@
-namespace Blog.BlogArticle.Entities;
+namespace Blog.BlogArticles.Entities;
 
 /// <summary>
 /// 文章狀態

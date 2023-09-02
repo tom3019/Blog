@@ -1,8 +1,8 @@
-using Blog.BlogArticle.DomainEvents;
-using Blog.BlogArticle.Entities.Exceptions;
+using Blog.BlogArticles.DomainEvents;
+using Blog.BlogArticles.Entities.Exceptions;
 using Blog.SeedWork;
 
-namespace Blog.BlogArticle.Entities;
+namespace Blog.BlogArticles.Entities;
 
 /// <summary>
 /// 部落格文章

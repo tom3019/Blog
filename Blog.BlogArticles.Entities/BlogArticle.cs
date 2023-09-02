@@ -7,7 +7,7 @@ namespace Blog.BlogArticles.Entities;
 /// <summary>
 /// 部落格文章
 /// </summary>
-public class BlogArticle : AggregateRoot<BlogArticleId>
+public class BlogArticle : AggregateRoot<BlogArticleId>, INullObject
 {
     /// <summary>
     /// 會員Id
@@ -34,6 +34,10 @@ public class BlogArticle : AggregateRoot<BlogArticleId>
     /// 文章狀態
     /// </summary>
     public ArticleState State { get; private set; }
+
+    protected BlogArticle()
+    {
+    }
 
     /// <summary>
     /// 建立文章
@@ -155,5 +159,18 @@ public class BlogArticle : AggregateRoot<BlogArticleId>
         {
             throw new BlogArticleDomainException($"Post-check fail in PublicationState {PublicationState}");
         }
+    }
+
+    public virtual bool IsNull()
+    {
+        return false;
+    }
+
+    private static BlogArticle? _null;
+    public static BlogArticle Null => _null ??= new NullBlogArticle();
+
+    private class NullBlogArticle : BlogArticle
+    {
+        public override bool IsNull() => true;
     }
 }

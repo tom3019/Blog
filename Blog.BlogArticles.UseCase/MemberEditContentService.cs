@@ -1,4 +1,5 @@
 using Blog.BlogArticles.Entities;
+using Blog.BlogArticles.UseCase.Exceptions;
 using Blog.BlogArticles.UseCase.Port;
 using Blog.BlogArticles.UseCase.Port.In.MemberEditContent;
 using Blog.BlogArticles.UseCase.Port.Out;
@@ -32,6 +33,11 @@ public class MemberEditContentService : IMemberEditContentService
     public async Task<SuccessResult> HandleAsync(MemberEditContentImport import)
     {
         var blogArticle = await _loadBlogArticlePort.LoadAsync(new BlogArticleId(import.BlogArticleId));
+        if (blogArticle.IsNull())
+        {
+            throw new BlogArticleNotFoundException($"Id : {import.BlogArticleId} not found.");
+        }
+
         blogArticle.ChangeContent(import.Content);
 
         var success = await _saveBlogArticlePort.SaveAsync(blogArticle);

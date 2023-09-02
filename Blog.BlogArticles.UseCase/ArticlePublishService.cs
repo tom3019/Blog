@@ -1,4 +1,5 @@
 using Blog.BlogArticles.Entities;
+using Blog.BlogArticles.UseCase.Exceptions;
 using Blog.BlogArticles.UseCase.Port.In.ArticlePublish;
 using Blog.BlogArticles.UseCase.Port.Out;
 using Blog.SeedWork;
@@ -31,6 +32,11 @@ public class ArticlePublishService : IArticlePublishService
     public async Task<SuccessResult> HandleAsync(ArticlePublishImport import)
     {
         var blogArticle = await _loadBlogArticlePort.LoadAsync(new BlogArticleId(import.BlogArticleId));
+        if (blogArticle.IsNull())
+        {
+            throw new BlogArticleNotFoundException($"Id : {import.BlogArticleId} not found.");
+        }
+
         blogArticle.Publish();
 
         var success = await _saveBlogArticlePort.SaveAsync(blogArticle);

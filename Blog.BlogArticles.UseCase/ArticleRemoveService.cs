@@ -1,4 +1,5 @@
 using Blog.BlogArticles.Entities;
+using Blog.BlogArticles.UseCase.Exceptions;
 using Blog.BlogArticles.UseCase.Port.In.RemoveArticle;
 using Blog.BlogArticles.UseCase.Port.Out;
 using Blog.SeedWork;
@@ -31,6 +32,11 @@ public class ArticleRemoveService : IArticleRemoveService
     public async Task<SuccessResult> HandleAsync(ArticleRemoveImport import)
     {
         var blogArticle = await _loadBlogArticlePort.LoadAsync(new BlogArticleId(import.BlogArticleId));
+        if (blogArticle.IsNull())
+        {
+            throw new BlogArticleNotFoundException($"Id : {import.BlogArticleId} not found.");
+        }
+
         blogArticle.Remove();
 
         var success = await _saveBlogArticlePort.SaveAsync(blogArticle);

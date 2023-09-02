@@ -1,4 +1,4 @@
-namespace Blog.BlogArticle.Entities;
+namespace Blog.BlogArticle.Entities.Exceptions;
 
 /// <summary>
 /// 部落格文章領域例外

@@ -1,4 +1,5 @@
 using Blog.BlogArticle.DomainEvents;
+using Blog.BlogArticle.Entities.Exceptions;
 using Blog.SeedWork;
 
 namespace Blog.BlogArticle.Entities;

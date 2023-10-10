@@ -6,7 +6,7 @@ namespace Blog.BlogArticles.Entities;
 /// <summary>
 /// 文章標題
 /// </summary>
-public class ArticleTitle : ValueObject<ArticleTitle>
+public record ArticleTitle : ValueObject<ArticleTitle>
 {
     public string Value { get; }
     

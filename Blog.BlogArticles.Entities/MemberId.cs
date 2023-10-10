@@ -3,7 +3,7 @@ using Blog.SeedWork;
 
 namespace Blog.BlogArticles.Entities;
 
-public class MemberId:ValueObject<MemberId>
+public record MemberId:ValueObject<MemberId>
 {
     public Guid Value { get; private set; }
 

@@ -6,7 +6,7 @@ namespace Blog.BlogArticles.Entities;
 /// <summary>
 /// 文章內容
 /// </summary>
-public class ArticleContent:ValueObject<ArticleContent>
+public record ArticleContent:ValueObject<ArticleContent>
 {
     public string Value { get; }
     internal ArticleContent(string value) => Value = value;

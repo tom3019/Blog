@@ -5,8 +5,9 @@ namespace Blog.EventBus;
 
 public static class EventBusServiceCollectionExtensions
 {
-    public static void AddEventBusModule(this IServiceCollection services)
+    public static IServiceCollection AddEventBusModule(this IServiceCollection services)
     {
         services.AddSingleton<IDomainEventBus, DomainEventBus>();
+        return services;
     }
 }

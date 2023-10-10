@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.BlogArticles.UseCaseTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.BlogArticles.Adapter.Out", "Blog.BlogArticles.Adapter.Out\Blog.BlogArticles.Adapter.Out.csproj", "{CBCCFE95-F4A9-4199-B8D7-355DD41025D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Application", "Blog.Application\Blog.Application.csproj", "{71A1078D-54D4-4918-8DBB-8FE3C4FAD78A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{CBCCFE95-F4A9-4199-B8D7-355DD41025D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBCCFE95-F4A9-4199-B8D7-355DD41025D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBCCFE95-F4A9-4199-B8D7-355DD41025D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A1078D-54D4-4918-8DBB-8FE3C4FAD78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A1078D-54D4-4918-8DBB-8FE3C4FAD78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A1078D-54D4-4918-8DBB-8FE3C4FAD78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A1078D-54D4-4918-8DBB-8FE3C4FAD78A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{93E2FEE8-DA29-4564-9AF2-8E209EF1BCB6} = {02215810-42D6-48B3-93AD-34A2FF93DDFE}
